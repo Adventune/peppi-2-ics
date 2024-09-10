@@ -1,7 +1,7 @@
 # Peppi2ICS
 
-Exporting tool to export current term timetable from Peppi into an ICS. Pair for
-example with
+Tool to export timetables for current enrolments from Peppi into an ICS. Pair
+for example with
 [bulk edit calendar events](https://bulkeditcalendarevents.com/index.html) to
 get clean timetables into Google calendar.
 
