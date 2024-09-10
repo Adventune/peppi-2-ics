@@ -9,7 +9,7 @@ get clean timetables into Google calendar.
 > This is not tested in any way. It was solely coded based on what I saw in my
 > Peppi environment. I don't know if this extends to other environments
 > (I study in Oulu university, others might not work :shrug:). There are
-> probably some cases an error is thrown or something else goes wrong.
+> probably some cases where an error is thrown or something else goes wrong.
 
 ## Dependecies
 
