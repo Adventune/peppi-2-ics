@@ -4,6 +4,7 @@ Export your current terms and schedule from Peppi to ICS
 
 from datetime import datetime
 
+import click
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -13,12 +14,18 @@ cookies = {
 }
 
 
-def main():
+@click.command()
+@click.option("--select", help="Select the term to export")
+@click.option(
+    "--curl",
+    prompt="CURL command copied from the browser",
+    help="CURL command for fetching HOPS",
+)
+def main(select, curl):
     """
     Export your current terms and schedule from Peppi to ICS
     """
 
-    curl = input("Enter the curl command copied from the browser: ")
     curl_parts = curl.split(" ")
 
     # Get the needed values from the curl command
@@ -43,6 +50,14 @@ def main():
 
     # Get the terms from Peppi
     terms = get_terms(url)
+
+    if select:
+        # If the user wants to select a specific term
+        if select in terms:
+            terms = [select]
+        else:
+            print("Selected term not found")
+            return
 
     if len(terms) == 0:
         print("No terms found")
